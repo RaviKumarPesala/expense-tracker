@@ -1,0 +1,28 @@
+<h3>Hi <%= @employee_name%>,</h3>
+
+<% if @message_type === 'status' -%>
+
+  <div>A quick overview of your expenses submitted on <%= @expense_submitted_on%>.</div>
+  <div>Please feel free to add any comments or contact team at <%= @finance_team_contact_email%>.</div><br>
+  <div>Summary:</div>
+  <% @expenses.each do |expense| %>
+    <b>Expense Name:</b> <%= expense.name %><br>
+    <b>Status:</b> <%= expense.status %><br>
+    <b>Amount:</b> <%= expense.amount %><br>
+    <b>Approved Amount:</b> <%= expense.approved_amount %><br>
+    <b>Date:</b> <%= expense.date %><br>
+    <b>Invoice Number:</b> <%= expense.invoice %><br>
+    <b>Description:</b> <%= expense.description %><br>
+  <% end %>
+
+<% else -%>
+
+  <div>A comment have been added to your expense by <b><%= @commenter_name%></b>.</div>
+  <div>Please feel free to view the expense and respond for further actions.</div><br>
+  <div>Comment:</div>
+  <div><%= @comment_message%></div>
+
+<% end %>
+
+<br>
+<div>Thank you.</div>
