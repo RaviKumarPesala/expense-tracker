@@ -38,4 +38,11 @@ module CustomConstants
     FETCH_FAILED        = "Comments Fetch Failed"
   end
 
+  module CurrentUserAuth
+    def role_admin_check
+      current_user_role = headers['role'] || 'employee'
+      render json: { status: UNAUTHORIZED, message: "User Cannot Perform This Action." } unless current_user_role == 'admin'
+    end
+  end
+
 end

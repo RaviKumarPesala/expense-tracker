@@ -20,7 +20,7 @@ module ExpenseCommentParamsValidator
   end
 
   # Email Notification for Employee when a Comment Added to Expense
-  def notify_employee
+  def notify_employee_expense_comment
     # expense_commenter = Employee.where(id: params[:employee_id]).first
     expense_owner = Employee.where(id: @expense[:employee_id]).first
     # render json: { params: params, expense: @expense, recipient: expense_owner, sender: expense_commenter }

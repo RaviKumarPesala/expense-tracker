@@ -8,5 +8,10 @@ Rails.application.routes.draw do
       resources :expense
     end
     resources :expense_comment
+    scope '/reimbursement' do
+      get 'expenses', action: :reiumbersement_expenses, controller: 'admin_approval'
+      get 'expense/:id', action: :reiumbersement_expense, controller: 'admin_approval'
+      put 'expense/:id', action: :update_expense_status, controller: 'admin_approval'
+    end
   end
 end

@@ -3,11 +3,11 @@
 <% if @message_type === 'status' -%>
 
   <div>A quick overview of your expenses submitted on <%= @expense_submitted_on%>.</div>
-  <div>Please feel free to add any comments or contact team at <%= @finance_team_contact_email%>.</div><br>
+  <div>Please feel free to add any comments.</div><br>
   <div>Summary:</div>
   <% @expenses.each do |expense| %>
     <b>Expense Name:</b> <%= expense.name %><br>
-    <b>Status:</b> <%= expense.status %><br>
+    <b>Status:</b> <%= expense.status.upcase %><br>
     <b>Amount:</b> <%= expense.amount %><br>
     <b>Approved Amount:</b> <%= expense.approved_amount %><br>
     <b>Date:</b> <%= expense.date %><br>

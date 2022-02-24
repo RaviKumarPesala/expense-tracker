@@ -5,7 +5,7 @@ module Api
     include CustomConstants::ExpenseComment, CustomConstants::StatusCodes
 
     before_action :set_employee_expense, only: %i[ create ]
-    after_action :notify_employee, only: %i[ create ]
+    after_action :notify_employee_expense_comment, only: %i[ create ]
 
     before_action :set_expenses, only: %i[ index ]
 

@@ -41,8 +41,8 @@ module ExpenseParamsValidator
       missing_args = expense_missing_args(expense)
       if missing_args.blank?
         # No Missing Arguments: Verify Invoice Number & Reject the Invalid Expenses
-        params[:expenses].delete_at(index) if is_expense_invoice_valid(expense[:invoice].to_i)
-        # expense['status'] = is_expense_invoice_valid(expense[:invoice].to_i) ? 'rejected' : 'pending'
+        # params[:expenses].delete_at(index) if is_expense_invoice_valid(expense[:invoice].to_i)
+        expense['status'] = is_expense_invoice_valid(expense[:invoice].to_i) ? 'rejected' : 'pending'
       else
         # Missing Arguments: Frame Error Message Accordingly
         if expense[:name].present?
